@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface AmenitiesProps {
   onEnquire: (topic: string) => void;
 }
@@ -9,39 +11,27 @@ const amenities = [
     title: 'Fitness Centre',
     subtitle: 'Train. Move. Perform.',
     enquiry: 'Fitness Centre & Gym',
+    image: '/gym.jpeg', // Replace with your actual image path in public folder
   },
   {
     title: 'Swimming Pool',
     subtitle: 'A private escape above the city.',
     enquiry: 'Swimming Pool & Deck',
+    image: '/swimming_pool.jpeg',
   },
   {
-    title: 'Sky Lounge',
+    title: 'Sky Lines',
     subtitle: 'Evenings with a view.',
     enquiry: 'Sundeck & Sky Lounge',
+    image: '/sky_lines.jpeg',
   },
   {
-    title: 'Banquet Hall',
-    subtitle: 'Celebrate beautifully.',
+    title: 'City View',
+    subtitle: 'View of this maximum city.',
     enquiry: 'Multipurpose Banquet Hall',
+    image: '/max_city.jpeg',
   },
 ];
-
-function ImagePlaceholder({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[#555249]">
-      <span className="border border-dashed border-[#E8D4A7]/40 px-6 py-3 text-[9px] uppercase tracking-[3px] text-[#E8D4A7]/60">
-        Amenity Image
-      </span>
-
-      {children}
-    </div>
-  );
-}
 
 export default function Amenities({
   onEnquire,
@@ -53,11 +43,10 @@ export default function Amenities({
     >
       <div className="mx-auto max-w-[1380px]">
         <div className="mb-14 max-w-2xl">
-          <div className="mb-5 leading-2 flex items-center gap-3">
+          <div className="mb-5 flex items-center gap-3">
             <span className="text-[9px] font-semibold uppercase tracking-[3px] text-[#A27D3B]">
               Lifestyle
             </span>
-
           </div>
 
           <h2 className="font-serif text-[46px] leading-[1] md:text-[65px]">
@@ -76,69 +65,73 @@ export default function Amenities({
 
         <div className="grid gap-5 md:grid-cols-12">
 
+          {/* Fitness Centre (Large Left Card) */}
           <div
-            onClick={() =>
-              onEnquire(amenities[0].enquiry)
-            }
-            className="group relative h-[520px] cursor-pointer overflow-hidden md:col-span-7"
+            onClick={() => onEnquire(amenities[0].enquiry)}
+            className="group relative h-[520px] cursor-pointer overflow-hidden md:col-span-7 bg-[#555249]"
           >
-            <ImagePlaceholder />
-
+            <Image
+              src={amenities[0].image}
+              alt={amenities[0].title}
+              fill
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-            <div className="absolute bottom-7 left-7">
+            <div className="absolute bottom-7 left-7 z-10">
               <p className="mb-2 text-[9px] uppercase tracking-[3px] text-[#E8D4A7]">
                 Wellness
               </p>
-
               <h3 className="font-serif text-4xl text-white">
                 {amenities[0].title}
               </h3>
-
-              <p className="mt-2 text-xs text-white/60">
+              <p className="mt-2 text-xs text-white/70">
                 {amenities[0].subtitle}
               </p>
             </div>
           </div>
 
+          {/* Right Column (Pool & Sky Lounge) */}
           <div className="grid gap-5 md:col-span-5">
             <div
-              onClick={() =>
-                onEnquire(amenities[1].enquiry)
-              }
-              className="group relative h-[250px] cursor-pointer overflow-hidden"
+              onClick={() => onEnquire(amenities[1].enquiry)}
+              className="group relative h-[250px] cursor-pointer overflow-hidden bg-[#555249]"
             >
-              <ImagePlaceholder />
-
+              <Image
+                src={amenities[1].image}
+                alt={amenities[1].title}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
 
-              <div className="absolute bottom-5 left-5">
+              <div className="absolute bottom-5 left-5 z-10">
                 <h3 className="font-serif text-2xl text-white">
                   {amenities[1].title}
                 </h3>
-
-                <p className="mt-1 text-xs text-white/60">
+                <p className="mt-1 text-xs text-white/70">
                   {amenities[1].subtitle}
                 </p>
               </div>
             </div>
 
             <div
-              onClick={() =>
-                onEnquire(amenities[2].enquiry)
-              }
-              className="group relative h-[250px] cursor-pointer overflow-hidden"
+              onClick={() => onEnquire(amenities[2].enquiry)}
+              className="group relative h-[250px] cursor-pointer overflow-hidden bg-[#555249]"
             >
-              <ImagePlaceholder />
-
+              <Image
+                src={amenities[2].image}
+                alt={amenities[2].title}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
 
-              <div className="absolute bottom-5 left-5">
+              <div className="absolute bottom-5 left-5 z-10">
                 <h3 className="font-serif text-2xl text-white">
                   {amenities[2].title}
                 </h3>
-
-                <p className="mt-1 text-xs text-white/60">
+                <p className="mt-1 text-xs text-white/70">
                   {amenities[2].subtitle}
                 </p>
               </div>
@@ -146,21 +139,23 @@ export default function Amenities({
           </div>
         </div>
 
+        {/* Banquet Hall (Bottom Full-Width Card) */}
         <div
-          onClick={() =>
-            onEnquire(amenities[3].enquiry)
-          }
-          className="group relative mt-5 h-[300px] cursor-pointer overflow-hidden"
+          onClick={() => onEnquire(amenities[3].enquiry)}
+          className="group relative mt-5 h-[300px] cursor-pointer overflow-hidden bg-[#555249]"
         >
-          <ImagePlaceholder />
+          <Image
+            src={amenities[3].image}
+            alt={amenities[3].title}
+            fill
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/40 transition-colors group-hover:bg-black/50" />
 
-          <div className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/40" />
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center">
             <p className="text-[9px] uppercase tracking-[3px] text-[#E8D4A7]">
               Gather beautifully
             </p>
-
             <h3 className="mt-2 font-serif text-4xl text-white md:text-5xl">
               {amenities[3].title}
             </h3>

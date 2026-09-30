@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface NavbarProps {
   onEnquire: () => void;
@@ -46,20 +47,24 @@ export default function Navbar({ onEnquire }: NavbarProps) {
 
   return (
     <>
-      <nav className="fixed left-0 top-0 z-[100] w-full border-b border-white/10 bg-[#0d0d0c]/95 text-white backdrop-blur-md">
-        <div className="mx-auto flex h-[74px] w-full max-w-[1500px] items-center justify-between gap-3 px-4 sm:px-8 lg:px-10">
-          {/* Logo */}
+      <nav className="fixed left-0 top-0 z-[100] w-full border-b border-[#C5A059]/20 bg-[#0d0d0c]/95 text-white backdrop-blur-md">
+        <div className="mx-auto flex h-[80px] w-full max-w-[1500px] items-center justify-between gap-3 px-4 sm:px-8 lg:px-10">
+          
+          {/* Logo Only (Text removed, border wrapper removed so only original image box shows) */}
           <a
             href="#overview"
             onClick={() => setOpen(false)}
-            className="flex shrink-0 flex-col justify-center"
+            className="flex shrink-0 items-center"
           >
-            <span className="font-serif text-[17px] leading-none tracking-wide text-[#E8D4A7] sm:text-[20px]">
-              NAIMI GROUP
-            </span>
-            <span className="mt-1 text-[8px] font-medium uppercase tracking-[1px] text-[#C5A059] sm:text-[9px] sm:tracking-[1.5px]">
-              ANDHERI WEST · MUMBAI
-            </span>
+            <div className="relative h-12 w-12 overflow-hidden rounded-md sm:h-14 sm:w-14">
+              <Image
+                src="/new_logo.png"
+                alt="Naimi Group Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </a>
 
           {/* Desktop navigation */}
@@ -68,7 +73,7 @@ export default function Navbar({ onEnquire }: NavbarProps) {
               <a
                 key={label}
                 href={href}
-                className="px-4 text-[12px] font-light text-white/55 transition-colors duration-300 hover:text-[#C5A059] xl:px-5"
+                className="px-4 text-[12px] font-light text-white/70 transition-colors duration-300 hover:text-[#C5A059] xl:px-5"
               >
                 {label}
               </a>
@@ -112,11 +117,11 @@ export default function Navbar({ onEnquire }: NavbarProps) {
         </div>
       </nav>
 
-      {/* Mobile / tablet menu: sibling of <nav>, NOT a child */}
+      {/* Mobile / tablet menu */}
       <div
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed inset-x-0 bottom-0 top-[74px] z-[99] overflow-y-auto bg-[#0d0d0c] text-white transition-all duration-300 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-[80px] z-[99] overflow-y-auto bg-[#0d0d0c] text-white transition-all duration-300 lg:hidden ${
           open
             ? 'visible translate-y-0 opacity-100'
             : 'pointer-events-none invisible -translate-y-2 opacity-0'

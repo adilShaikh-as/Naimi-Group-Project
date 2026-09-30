@@ -8,16 +8,26 @@ export default function Footer() {
         <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 lg:px-14">
           <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
 
-            {/* Brand + MahaRERA */}
+            {/* Brand Logo + MahaRERA */}
             <div>
-              <div>
-                <p className="font-serif text-3xl tracking-wide text-[#E8D4A7]">
-                  NAIMI GROUP
-                </p>
-
-                <p className="mt-2 text-[9px] uppercase tracking-[3px] text-[#C5A059]">
-                  Andheri West · Mumbai
-                </p>
+              {/* Logo Replaced Here */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-14 w-14 overflow-hidden rounded-md">
+                  <Image
+                    src="/new_logo.png"
+                    alt="Naimi Group Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="font-serif text-lg tracking-wide text-[#E8D4A7]">
+                    NAIMI GROUP
+                  </p>
+                  <p className="text-[9px] uppercase tracking-[3px] text-[#C5A059]">
+                    Andheri West · Mumbai
+                  </p>
+                </div>
               </div>
 
               {/* MahaRERA Certificate */}
@@ -91,15 +101,15 @@ export default function Footer() {
                 </p>
 
                 {/* Agent Registration */}
-              <div className="mt-10 border-t border-white/10 pt-6">
-                <p className="text-[9px] uppercase tracking-[2px] text-white/30">
-                  Agent MahaRERA
-                </p>
+                <div className="mt-10 border-t border-white/10 pt-6">
+                  <p className="text-[9px] uppercase tracking-[2px] text-white/30">
+                    Agent MahaRERA
+                  </p>
 
-                <p className="mt-2 text-sm tracking-wide text-white/70">
-                  A51900043176
-                </p>
-              </div>
+                  <p className="mt-2 text-sm tracking-wide text-white/70">
+                    A51900043176
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -145,8 +155,6 @@ export default function Footer() {
                   Location
                 </a>
               </nav>
-
-              
             </div>
           </div>
         </div>

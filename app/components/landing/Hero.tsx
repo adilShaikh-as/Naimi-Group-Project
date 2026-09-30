@@ -50,12 +50,14 @@ export default function Hero({ onEnquire }: HeroProps) {
                   Schedule a Visit
                 </button>
 
-                <button
-                  onClick={() => onEnquire('Download Brochure')}
-                  className="w-full cursor-pointer rounded-full border border-white/40 bg-white/5 px-6 py-3.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#171715] min-[420px]:w-auto sm:py-3"
+                {/* Direct PDF Download Link */}
+                <a
+                  href="/brochure.pdf"
+                  download="Naimi_Heights_Brochure.pdf"
+                  className="inline-flex w-full items-center justify-center cursor-pointer rounded-full border border-white/40 bg-white/5 px-6 py-3.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#171715] min-[420px]:w-auto sm:py-3"
                 >
                   Download Brochure
-                </button>
+                </a>
               </div>
             </div>
 

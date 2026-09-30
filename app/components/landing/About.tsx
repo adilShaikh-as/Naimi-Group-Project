@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function About() {
@@ -14,32 +16,25 @@ export default function About() {
             </span>
           </div>
 
-          <h2 className="max-w-xl font-serif text-[36px] leading-[1.05] tracking-[-1px] text-[#171715] sm:text-[43px] md:text-[58px] md:leading-[1.03]">
-            We verify the
+          <h2 className="max-w-xl font-serif text-[32px] leading-[1.05] tracking-[-1px] text-[#171715] sm:text-[38px] md:text-[48px] md:leading-[1.03]">
+            We Don’t Just Market Homes—
             <br />
-            <span className="text-[#A27D3B]">home before you.</span>
+            <span className="text-[#A27D3B]">We Verify Them First.</span>
           </h2>
 
-          <div className="mt-8 max-w-lg space-y-5 text-[15px] leading-7 text-[#666057]">
+          <div className="mt-8 max-w-lg space-y-5 text-[14px] leading-7 text-[#666057] sm:text-[15px]">
             <p>
-              Your peace of mind is our starting point. Before stepping in as
-              the Official Marketing Partner for this luxury Andheri West
-              development, Naimi Group&apos;s independent verification team
-              completed exhaustive due diligence across approvals, RERA
-              compliances and builder track records.
+              Your peace of mind is our starting point. Before stepping in as the Official Marketing Partner for this luxury 2 & 3 BHK Andheri West development, Naimi Group’s independent verification team completed exhaustive due diligence across all approvals, RERA compliances, and builder track records.
             </p>
 
             <p>
-              Backed by 9+ years of market leadership and hundreds of
-              on-ground site visits, we represent residences we would
-              confidently recommend to our own family.
+              Backed by 9+ years of market leadership and hundreds of on-ground site visits in Andheri West over the last year, we only represent residences we would confidently recommend to our own family. Our specialists have already done the hard homework so you can invest with zero doubt and 100% security.
             </p>
           </div>
 
           <div className="mt-9 border-l-2 border-[#C5A059] pl-5">
             <p className="font-serif text-lg leading-7 text-[#302D27]">
-              Priority inventory. Direct-from-developer pricing. End-to-end
-              documentation support.
+              Enjoy priority inventory access, direct-from-developer pricing, and end-to-end documentation support—all backed by the assurance of a thoroughly verified property.
             </p>
           </div>
         </div>
@@ -59,16 +54,16 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           </div>
 
-          {/* Small overlapping image (optional) */}
-          <div className="absolute -bottom-8 -left-8 hidden w-44 overflow-hidden border-8 border-[#F3F0E9] md:block">
+          {/* Small overlapping image */}
+          <div className="absolute -bottom-8 -left-8 hidden w-44 overflow-hidden border-8 border-[#F3F0E9] shadow-xl md:block">
             <div className="relative h-44 bg-[#CFC9BC]">
-              {/* <Image
-                src="/about-small.jpg"
+              <Image
+                src="/interior.jpeg"
                 alt="Naimi Heights interior detail"
                 fill
                 sizes="176px"
                 className="object-cover"
-              /> */}
+              />
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface EnquiryModalProps {
   isOpen: boolean;
   topic: string;
@@ -32,19 +34,23 @@ export default function EnquiryModal({
           ×
         </button>
 
-        {/* Left — Editorial panel */}
+        {/* Left — Editorial panel with Larger Logo */}
         <div className="relative hidden w-[40%] flex-col justify-between overflow-hidden bg-[#171715] p-10 text-white md:flex lg:p-12">
 
           {/* Decorative circle */}
           <div className="absolute -bottom-32 -left-32 h-[320px] w-[320px] rounded-full border border-[#C5A059]/20" />
           <div className="absolute -bottom-24 -left-24 h-[240px] w-[240px] rounded-full border border-[#C5A059]/10" />
 
-          <div className="relative z-10">
-            <p className="text-[9px] font-semibold uppercase tracking-[3px] text-[#C5A059]">
-              Naimi Group
-            </p>
-
-            <div className="mt-3 h-px w-10 bg-[#C5A059]" />
+          {/* Increased logo size here */}
+          <div className="relative z-10 flex items-center gap-3">
+            <div className="relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-md">
+              <Image
+                src="/new_logo.png"
+                alt="Naimi Group Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           <div className="relative z-10">
@@ -86,8 +92,6 @@ export default function EnquiryModal({
                 <br />
                 <span className="text-[#A27D3B]">next home.</span>
               </h3>
-
-            
             </div>
 
             {/* Form */}
