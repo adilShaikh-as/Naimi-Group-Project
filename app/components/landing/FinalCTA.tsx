@@ -9,30 +9,32 @@ export default function FinalCTA({
 }: FinalCTAProps) {
   return (
     <section className="relative overflow-hidden bg-[#eeeae0] px-6 py-24 md:px-10 lg:py-32">
+      {/* Decorative background circles */}
       <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-black/10" />
-
       <div className="absolute -right-10 -top-10 h-52 w-52 rounded-full border border-black/10" />
 
       <div className="relative mx-auto flex max-w-[1380px] flex-col justify-between gap-10 md:flex-row md:items-end">
-        <div>
-          <p className="mb-5 text-[9px] font-bold uppercase tracking-[3px] text-black/50">
-            Private Enquiry
+        <div className="max-w-4xl">
+          <p className="mb-5 text-[10px] font-bold uppercase tracking-[3px] text-[#A27D3B]">
+            Trusted Excellence · Naimi Group
           </p>
 
-          <h2 className="max-w-3xl font-serif text-[48px] leading-[0.95] tracking-[-1px] text-[#171715] md:text-[75px]">
-            Your next address
-            <br />
-            starts here.
+          <h2 className="font-serif text-[38px] leading-[1.08] tracking-[-1px] text-[#171715] sm:text-[48px] md:text-[62px]">
+            Proud marketing partners for over <span className="italic text-[#A27D3B]">700+ landmark projects</span> across Mumbai.
           </h2>
+
+          <p className="mt-5 max-w-xl text-sm leading-7 text-[#666057] md:text-base font-light">
+            Benefit from our unmatched market leadership, direct developer pricing, and verified inventory access. Your dream home awaits.
+          </p>
         </div>
 
         <button
           onClick={() =>
-            onEnquire('Private Project Enquiry')
+            onEnquire('Private Project Enquiry — 700+ Projects')
           }
-          className="group flex w-fit cursor-pointer items-center gap-5 rounded-full bg-[#171715] px-7 py-4 text-xs font-semibold uppercase tracking-wide text-white transition-all hover:bg-white hover:text-[#171715]"
+          className="group flex w-fit shrink-0 cursor-pointer items-center gap-5 rounded-full bg-[#171715] px-8 py-4 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#A27D3B]"
         >
-          Begin Your Enquiry
+          Enquire Now
 
           <span className="text-lg transition-transform group-hover:translate-x-1">
             →

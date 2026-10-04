@@ -49,8 +49,8 @@ export default function Navbar({ onEnquire }: NavbarProps) {
     <>
       <nav className="fixed left-0 top-0 z-[100] w-full border-b border-[#C5A059]/20 bg-[#0d0d0c]/95 text-white backdrop-blur-md">
         <div className="mx-auto flex h-[80px] w-full max-w-[1500px] items-center justify-between gap-3 px-4 sm:px-8 lg:px-10">
-
-          {/* Logo Only (Text removed, border wrapper removed so only original image box shows) */}
+          
+          {/* Logo Only */}
           <a
             href="#overview"
             onClick={() => setOpen(false)}
@@ -60,8 +60,7 @@ export default function Navbar({ onEnquire }: NavbarProps) {
               <Image
                 src="/new_logo.png"
                 alt="Naimi Group Logo"
-                width={180}
-                height={60}
+                fill
                 className="object-contain"
                 priority
               />
@@ -81,11 +80,11 @@ export default function Navbar({ onEnquire }: NavbarProps) {
             ))}
           </div>
 
-          {/* Right side: CTA + hamburger */}
-          <div className="flex items-center gap-3">
+          {/* Right side: CTA (Now visible on mobile) + hamburger */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={handleEnquire}
-              className="hidden cursor-pointer border border-[#C5A059] bg-transparent px-5 py-2.5 text-[11px] font-medium text-[#C5A059] transition-all duration-300 hover:bg-[#C5A059] hover:text-[#171715] sm:block"
+              className="cursor-pointer border border-[#C5A059] bg-transparent px-3.5 py-2 text-[10px] font-medium text-[#C5A059] transition-all duration-300 hover:bg-[#C5A059] hover:text-[#171715] sm:px-5 sm:py-2.5 sm:text-[11px]"
             >
               Enquire Now
             </button>
@@ -99,16 +98,19 @@ export default function Navbar({ onEnquire }: NavbarProps) {
               className="relative flex h-10 w-10 cursor-pointer items-center justify-center lg:hidden"
             >
               <span
-                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${open ? 'rotate-45' : '-translate-y-[7px]'
-                  }`}
+                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${
+                  open ? 'rotate-45' : '-translate-y-[7px]'
+                }`}
               />
               <span
-                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${open ? 'opacity-0' : 'opacity-100'
-                  }`}
+                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${
+                  open ? 'opacity-0' : 'opacity-100'
+                }`}
               />
               <span
-                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${open ? '-rotate-45' : 'translate-y-[7px]'
-                  }`}
+                className={`absolute h-px w-6 bg-[#E8D4A7] transition-all duration-300 ${
+                  open ? '-rotate-45' : 'translate-y-[7px]'
+                }`}
               />
             </button>
           </div>
@@ -119,10 +121,11 @@ export default function Navbar({ onEnquire }: NavbarProps) {
       <div
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed inset-x-0 bottom-0 top-[80px] z-[99] overflow-y-auto bg-[#0d0d0c] text-white transition-all duration-300 lg:hidden ${open
+        className={`fixed inset-x-0 bottom-0 top-[80px] z-[99] overflow-y-auto bg-[#0d0d0c] text-white transition-all duration-300 lg:hidden ${
+          open
             ? 'visible translate-y-0 opacity-100'
             : 'pointer-events-none invisible -translate-y-2 opacity-0'
-          }`}
+        }`}
       >
         <div className="mx-auto flex min-h-full max-w-[1500px] flex-col px-6 pb-10 pt-4 sm:px-8">
           <div className="flex flex-col">
@@ -140,13 +143,13 @@ export default function Navbar({ onEnquire }: NavbarProps) {
 
           <button
             onClick={handleEnquire}
-            className="mt-8 w-full cursor-pointer bg-[#C5A059] px-6 py-4 text-xs font-semibold tracking-wide text-[#171715] transition-all hover:bg-[#e0c27b] sm:hidden"
+            className="mt-8 w-full cursor-pointer bg-[#C5A059] px-6 py-4 text-xs font-semibold tracking-wide text-[#171715] transition-all hover:bg-[#e0c27b]"
           >
             Enquire Now
           </button>
 
           <p className="mt-auto pt-10 text-[9px] uppercase tracking-[2px] text-white/30">
-            Naimi Group · Andheri West, Mumbai
+            Sunbeam Heights · Andheri West, Mumbai
           </p>
         </div>
       </div>

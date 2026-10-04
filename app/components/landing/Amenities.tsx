@@ -20,16 +20,16 @@ const amenities = [
     image: '/swimming_pool.jpeg',
   },
   {
+    title: 'Kids Play Area',
+    subtitle: 'A beautiful Kids Playing Area.',
+    enquiry: 'Beautiful Kids Play Zone',
+    image: '/kids-zone.png',
+  },
+  {
     title: 'Sky Lines',
     subtitle: 'Evenings with a view.',
     enquiry: 'Sundeck & Sky Lounge',
     image: '/sky_lines.jpeg',
-  },
-  {
-    title: 'City View',
-    subtitle: 'View of this maximum city.',
-    enquiry: 'Multipurpose Banquet Hall',
-    image: '/max_city.jpeg',
   },
 ];
 

@@ -8,9 +8,8 @@ export default function Footer() {
         <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 lg:px-14">
           <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
 
-            {/* Brand Logo + MahaRERA */}
+            {/* Brand Logo & Name */}
             <div>
-              {/* Logo Replaced Here */}
               <div className="flex items-center gap-4">
                 <div className="relative h-14 w-14 overflow-hidden rounded-md">
                   <Image
@@ -29,91 +28,36 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
-
-              {/* MahaRERA Certificate */}
-              <div className="mt-10">
-                <p className="mb-4 text-[9px] font-semibold uppercase tracking-[3px] text-[#C5A059]">
-                  MahaRERA Registered
-                </p>
-
-                <a
-                  href="https://maharera.maharashtra.gov.in"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Verify Naimi Group MahaRERA registration"
-                  className="group block w-full max-w-[430px]"
-                >
-                  <div className="overflow-hidden rounded-sm bg-white p-3 transition-opacity duration-300 group-hover:opacity-90">
-                    <Image
-                      src="/projectMahaRERA.jpeg"
-                      alt="Naimi Group MahaRERA registration certificate"
-                      width={900}
-                      height={450}
-                      className="h-auto w-full object-contain"
-                    />
-                  </div>
-                </a>
-
-                <p className="mt-3 text-[10px] leading-5 text-white/30">
-                  Click to verify registration on the official MahaRERA website.
-                </p>
-              </div>
             </div>
 
-            {/* Project */}
+            {/* RERA Compliance Details */}
             <div>
               <p className="mb-6 text-[9px] font-semibold uppercase tracking-[3px] text-[#C5A059]">
-                Project
+                Compliance & Registrations
               </p>
 
-              <div className="space-y-5 text-sm leading-6 text-white/50">
-                <p>
-                  <span className="text-base text-white/80">
-                    Naimi Group
-                  </span>
-                  <br />
-                  New Link Road
-                  <br />
-                  Near Oshiwara Metro Station
-                  <br />
-                  Andheri (W), Mumbai - 400053
-                </p>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-[9px] uppercase tracking-[2px] text-white/35">
+                    Project MahaRERA
+                  </p>
+                  <p className="mt-1 text-sm tracking-wide text-white/80">
+                    P51800049875
+                  </p>
+                </div>
 
-                <a
-                  href="https://maps.app.goo.gl/khaqTxVNr6DVmeuD8"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-[#C5A059] transition-colors hover:text-white"
-                >
-                  View on Google Maps
-                  <span>→</span>
-                </a>
-              </div>
-
-              {/* Registration */}
-              <div className="mt-10 border-t border-white/10 pt-6">
-                <p className="text-[9px] uppercase tracking-[2px] text-white/30">
-                  Project MahaRERA
-                </p>
-
-                <p className="mt-2 text-sm tracking-wide text-white/70">
-                  P51800049875
-                </p>
-
-                {/* Agent Registration */}
-                <div className="mt-10 border-t border-white/10 pt-6">
-                  <p className="text-[9px] uppercase tracking-[2px] text-white/30">
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-[9px] uppercase tracking-[2px] text-white/35">
                     Agent MahaRERA
                   </p>
-
-                  <p className="mt-2 text-sm tracking-wide text-white/70">
+                  <p className="mt-1 text-sm tracking-wide text-white/80">
                     A51900043176
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Explore */}
+            {/* Explore Links */}
             <div>
               <p className="mb-6 text-[9px] font-semibold uppercase tracking-[3px] text-[#C5A059]">
                 Explore

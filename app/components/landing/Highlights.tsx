@@ -2,7 +2,7 @@ export default function Highlights() {
   const highlights = [
     ['2 & 3 BHK', 'Premium Residences'],
     ['649–1001', 'SQ.FT. Carpet Area'],
-    ['29+', 'Floors of Elevation'],
+    ['G+ 40', 'Floors of Elevation'],
     ['Andheri West', 'Mumbai'],
   ];
 

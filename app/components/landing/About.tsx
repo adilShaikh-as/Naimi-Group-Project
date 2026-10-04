@@ -24,7 +24,7 @@ export default function About() {
 
           <div className="mt-8 max-w-lg space-y-5 text-[14px] leading-7 text-[#666057] sm:text-[15px]">
             <p>
-              Your peace of mind is our starting point. Before stepping in as the Official Marketing Partner for this luxury 2 & 3 BHK Andheri West development, Naimi Group’s independent verification team completed exhaustive due diligence across all approvals, RERA compliances, and builder track records.
+              Your peace of mind is our starting point. Before stepping in as the Official Marketing Partner for <b>Sunbeam Heights Andheri West</b> development, Naimi Group’s independent verification team completed exhaustive due diligence across all approvals, RERA compliances, and builder track records.
             </p>
 
             <p>

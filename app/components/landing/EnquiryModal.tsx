@@ -86,7 +86,7 @@ export default function EnquiryModal({
           type="button"
           onClick={handleClose}
           aria-label="Close enquiry form"
-          className="absolute right-5 top-5 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black/10 bg-white/70 text-xl font-light text-[#171715] backdrop-blur-sm transition-all duration-300 hover:border-[#A27D3B] hover:bg-[#A27D3B] hover:text-white"
+          className="absolute right-5 top-5 z-25 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black/10 bg-white/70 text-xl font-light text-[#171715] backdrop-blur-sm transition-all duration-300 hover:border-[#A27D3B] hover:bg-[#A27D3B] hover:text-white"
         >
           ×
         </button>
@@ -178,22 +178,20 @@ export default function EnquiryModal({
             ) : (
               <>
                 {/* Header */}
-                <div className="mb-10 pr-10">
+                <div className="mb-8 pr-10">
                   <p className="mb-3 text-[9px] font-semibold uppercase tracking-[3px] text-[#A27D3B]">
-                    Private Enquiry
+                    Private Enquiry · Sunbeam Heights
                   </p>
 
-                  <h3 className="font-serif text-[38px] leading-[0.95] tracking-[-0.5px] text-[#171715] sm:text-[44px]">
-                    Let&apos;s talk
-                    <br />
-                    about your
-                    <br />
-                    <span className="text-[#A27D3B]">next home.</span>
+                  <h3 className="font-serif text-[32px] leading-[1.05] tracking-[-0.5px] text-[#171715] sm:text-[38px]">
+                    Luxury 2 & 3 BHK <br />
+                    balcony residences <br />
+                    <span className="text-[#A27D3B] italic">in Andheri West.</span>
                   </h3>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-7">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div className="group">
                     <label
@@ -254,7 +252,7 @@ export default function EnquiryModal({
                   {/* Private Enquiry checkbox */}
                   <label
                     htmlFor="privateEnquiry"
-                    className="flex cursor-pointer items-start gap-3 border-t border-[#DDD6CA] pt-6"
+                    className="flex cursor-pointer items-start gap-3 border-t border-[#DDD6CA] pt-5"
                   >
                     <input
                       id="privateEnquiry"
@@ -293,7 +291,7 @@ export default function EnquiryModal({
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="group mt-3 flex w-full cursor-pointer items-center justify-between bg-[#171715] px-6 py-5 text-[10px] font-semibold uppercase tracking-[2px] text-white transition-all duration-300 hover:bg-[#A27D3B] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group mt-2 flex w-full cursor-pointer items-center justify-between bg-[#171715] px-6 py-4 text-[10px] font-semibold uppercase tracking-[2px] text-white transition-all duration-300 hover:bg-[#A27D3B] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     <span>
                       {status === 'submitting'
@@ -309,17 +307,17 @@ export default function EnquiryModal({
                 </form>
 
                 {/* Privacy note */}
-                <div className="mt-7 flex items-start gap-3">
+                <div className="mt-6 flex items-start gap-3">
                   <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059]" />
                   <p className="text-[9px] leading-4 text-[#999187]">
-                    Your information is kept confidential and will only be
-                    used by our team to respond to your enquiry.
+                    Your information is kept confidential and will only be used
+                    by our team to respond to your enquiry.
                   </p>
                 </div>
 
                 {/* Bottom detail */}
-                <div className="mt-10 flex items-center justify-between border-t border-[#DDD6CA] pt-5 text-[8px] uppercase tracking-[1.5px] text-[#AAA399]">
-                  <span>Naimi Heights</span>
+                <div className="mt-8 flex items-center justify-between border-t border-[#DDD6CA] pt-4 text-[8px] uppercase tracking-[1.5px] text-[#AAA399]">
+                  <span>Sunbeam Heights</span>
                   <span>Andheri West · Mumbai</span>
                 </div>
               </>
