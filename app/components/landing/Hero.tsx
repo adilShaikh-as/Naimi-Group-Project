@@ -44,20 +44,20 @@ export default function Hero({ onEnquire }: HeroProps) {
 
               <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap sm:mt-7">
                 <button
-                  onClick={() => onEnquire('Schedule Site Visit')}
+                  onClick={() => onEnquire('Enquiry')}
                   className="w-full cursor-pointer rounded-full bg-[#C5A059] px-6 py-3.5 text-xs font-semibold tracking-wide text-[#171715] transition-all hover:bg-[#e0c27b] min-[420px]:w-auto sm:py-3"
                 >
-                  Schedule a Visit
+                  Enquiry
                 </button>
 
-                {/* Direct PDF Download Link */}
-                <a
-                  href="/brochure.pdf"
-                  download="Naimi_Heights_Brochure.pdf"
+                {/* Brochure is lead-gated — opens the enquiry modal; the
+                    actual PDF is only revealed after a successful submit */}
+                <button
+                  onClick={() => onEnquire('Download Brochure')}
                   className="inline-flex w-full items-center justify-center cursor-pointer rounded-full border border-white/40 bg-white/5 px-6 py-3.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md transition-all hover:bg-white hover:text-[#171715] min-[420px]:w-auto sm:py-3"
                 >
                   Download Brochure
-                </a>
+                </button>
               </div>
             </div>
 
