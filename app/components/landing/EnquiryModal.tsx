@@ -21,8 +21,6 @@ export default function EnquiryModal({
 
   if (!isOpen) return null;
 
-  // the brochure link stays gated — it only renders once this topic has
-  // actually reached a successful submission below
   const isBrochureRequest = topic === 'Download Brochure';
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
