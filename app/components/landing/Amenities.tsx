@@ -11,7 +11,7 @@ const amenities = [
     title: 'Fitness Centre',
     subtitle: 'Train. Move. Perform.',
     enquiry: 'Fitness Centre & Gym',
-    image: '/gym.jpeg', // Replace with your actual image path in public folder
+    image: '/gym.jpeg', 
   },
   {
     title: 'Swimming Pool',
@@ -57,8 +57,8 @@ export default function Amenities({
             </span>
           </h2>
 
-          <p className="mt-6 max-w-lg text-sm leading-6 text-[#706A60]">
-            15+ lifestyle amenities designed to bring wellness,
+          <p className="mt-6 max-w-lg text-lg leading-6 text-[#706A60]">
+            <span className='font-bold'>15+ lifestyle amenities </span>designed to bring wellness,
             leisure and social experiences closer to home.
           </p>
         </div>

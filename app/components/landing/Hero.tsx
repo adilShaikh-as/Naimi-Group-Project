@@ -29,7 +29,7 @@ export default function Hero({ onEnquire }: HeroProps) {
 
       <div className="relative z-10 mx-auto w-full max-w-[1380px] px-5 pb-10 pt-28 sm:px-6 sm:pb-14 sm:pt-32 md:px-10 md:pt-40 lg:pb-20">
         <div className="max-w-4xl">
-          <h1 className="max-w-4xl font-serif text-[44px] leading-[0.98] tracking-[-1px] text-white min-[400px]:text-[52px] sm:text-[68px] sm:tracking-[-1.5px] md:text-[88px] md:leading-[0.94] md:tracking-[-2px] lg:text-[104px] xl:text-[120px]">
+          <h1 className="max-w-4xl font-serif text-[40px] leading-[0.98] tracking-[-1px] text-white min-[400px]:text-[52px] sm:text-[68px] sm:tracking-[-1.5px] md:text-[88px] md:leading-[0.94] md:tracking-[-2px] lg:text-[104px] xl:text-[120px]">
             Sunbeam
             <br />
             <span className="text-[#E8D4A7]">Heights</span>
@@ -37,8 +37,8 @@ export default function Hero({ onEnquire }: HeroProps) {
 
           <div className="mt-6 flex flex-col gap-8 sm:mt-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
             <div className="max-w-md">
-              <p className="text-sm leading-6 text-white/75 sm:text-base sm:leading-7 md:text-lg">
-                Experience sky-high luxury in Andheri West. Featuring premium 2 & 3 BHK balcony residences and expansive sundeck homes designed for elevated living.
+              <p className="text-[16px] leading-6 text-white/75 sm:leading-7 md:text-lg">
+                Experience sky-high luxury in Andheri West. Featuring premium 2 & 3 BHK balcony residences and sundeck homes designed for elevated living.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap sm:mt-7">

@@ -23,15 +23,13 @@ export default function FinalCTA({
             Proud marketing partners for over <span className="italic text-[#A27D3B]">700+ landmark projects</span> across Mumbai.
           </h2>
 
-          <p className="mt-5 max-w-xl text-sm leading-7 text-[#666057] md:text-base font-light">
-            Benefit from our unmatched market leadership, direct developer pricing, and verified inventory access. Your dream home awaits.
+          <p className="mt-5 max-w-xl text-[16px] leading-7 text-[#666057] md:text-base font-light">
+            We're partnered with 700+ projects across Mumbai. Whatever you're looking for, just send us a message.
           </p>
         </div>
 
         <button
-          onClick={() =>
-            onEnquire('Private Project Enquiry — 700+ Projects')
-          }
+          onClick={() => onEnquire('Private Project Enquiry')}
           className="group flex w-fit shrink-0 cursor-pointer items-center gap-5 rounded-full bg-[#171715] px-8 py-4 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#A27D3B]"
         >
           Enquire Now

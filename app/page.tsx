@@ -16,13 +16,13 @@ import EnquiryModal from './components/landing/EnquiryModal';
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [enquiryTopic, setEnquiryTopic] = useState(
-    'General Website Enquiry'
+    'Enquiry'
   );
 
   // Open the enquiry modal on every page load / refresh
   useEffect(() => {
     const timer = setTimeout(() => {
-      setEnquiryTopic('General Website Enquiry');
+      setEnquiryTopic('Enquiry');
       setIsModalOpen(true);
     }, 800); // set to 0 for instant
 
@@ -42,7 +42,7 @@ export default function LandingPage() {
     <main className="min-h-screen overflow-x-hidden bg-[#F3F0E9] text-[#171715]">
       <Navbar
         onEnquire={() =>
-          openEnquiryModal('General Website Enquiry')
+          openEnquiryModal('Enquiry')
         }
       />
 

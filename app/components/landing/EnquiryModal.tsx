@@ -22,6 +22,9 @@ export default function EnquiryModal({
   if (!isOpen) return null;
 
   const isBrochureRequest = topic === 'Download Brochure';
+  // .includes() instead of strict equality — won't silently break if a dash
+  // character (— vs - vs –) gets changed somewhere along the way
+  const isGeneralMessageRequest = topic.includes('Private Project Enquiry');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,8 +44,13 @@ export default function EnquiryModal({
       name: formData.get('name'),
       phone: formData.get('phone'),
       email: formData.get('email'),
+      // FormData.get() returns null for a field that isn't rendered at all
+      // (configuration vs message are mutually exclusive in this form) —
+      // convert that to undefined so it matches Zod's .optional() on the
+      // server, which doesn't accept null.
+      configuration: formData.get('configuration') || undefined,
+      message: formData.get('message') || undefined,
       topic,
-      privateEnquiry: formData.get('privateEnquiry') === 'on',
     };
 
     try {
@@ -146,9 +154,8 @@ export default function EnquiryModal({
                     <>Your brochure is ready to download below.</>
                   ) : (
                     <>
-                      Your enquiry about{' '}
-                      <span className="text-[#A27D3B]">{topic}</span> has
-                      been received. Our team will reach out shortly.
+                      Thank you for your interest. Our team will reach out
+                      shortly.
                     </>
                   )}
                 </p>
@@ -180,7 +187,7 @@ export default function EnquiryModal({
                 {/* Header */}
                 <div className="mb-8 pr-10">
                   <p className="mb-3 text-[9px] font-semibold uppercase tracking-[3px] text-[#A27D3B]">
-                    Private Enquiry · Sunbeam Heights
+                    Sunbeam Heights
                   </p>
 
                   <h3 className="font-serif text-[32px] leading-[1.05] tracking-[-0.5px] text-[#171715] sm:text-[38px]">
@@ -249,27 +256,54 @@ export default function EnquiryModal({
                     />
                   </div>
 
-                  {/* Private Enquiry checkbox */}
-                  <label
-                    htmlFor="privateEnquiry"
-                    className="flex cursor-pointer items-start gap-3 border-t border-[#DDD6CA] pt-5"
-                  >
-                    <input
-                      id="privateEnquiry"
-                      name="privateEnquiry"
-                      type="checkbox"
-                      defaultChecked
-                      className="mt-0.5 h-4 w-4 flex-none cursor-pointer accent-[#A27D3B]"
-                    />
-                    <span className="text-xs leading-5 text-[#555049]">
-                      <span className="font-semibold text-[#171715]">
-                        Keep this a private enquiry
-                      </span>{' '}
-                      — my details will only be shared with the Naimi Group
-                      sales team and not passed on to other agents, brokers,
-                      or portals.
-                    </span>
-                  </label>
+                  {isGeneralMessageRequest ? (
+                    /* Message box — this entry point is explicitly
+                       "just send us a message," so a configuration
+                       dropdown doesn't apply here */
+                    <div className="group">
+                      <label
+                        htmlFor="message"
+                        className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                      >
+                        <span className="text-[#A27D3B]">04</span>
+                        Your Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        placeholder="Tell us what you're looking for..."
+                        required
+                        className="w-full resize-none border-b border-[#D2CBC0] bg-transparent px-0 py-3 text-sm text-[#171715] outline-none transition-colors placeholder:text-[#AAA399] focus:border-[#A27D3B]"
+                      />
+                    </div>
+                  ) : (
+                    /* Configuration */
+                    <div className="group">
+                      <label
+                        htmlFor="configuration"
+                        className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                      >
+                        <span className="text-[#A27D3B]">04</span>
+                        Configuration
+                      </label>
+                      <select
+                        id="configuration"
+                        name="configuration"
+                        required
+                        defaultValue=""
+                        className="w-full border-b border-[#D2CBC0] bg-transparent px-0 py-3 text-sm text-[#171715] outline-none transition-colors focus:border-[#A27D3B]"
+                      >
+                        <option value="" disabled>
+                          Select a configuration
+                        </option>
+                        <option value="2 BHK">2 BHK</option>
+                        <option value="2 BHK Grand">2 BHK Grand</option>
+                        <option value="3 BHK">3 BHK</option>
+                        <option value="Exclusive Duplex">Exclusive Duplex</option>
+                      </select>
+                    </div>
+                  )}
 
                   {/* honeypot field — hidden from real users */}
                   <div className="absolute left-[-9999px] h-0 w-0 opacity-0">
@@ -298,7 +332,7 @@ export default function EnquiryModal({
                         ? 'Sending…'
                         : isBrochureRequest
                         ? 'Get Brochure'
-                        : 'Request a Conversation'}
+                        : 'Send an Enquiry'}
                     </span>
                     <span className="text-xl font-light transition-transform duration-300 group-hover:translate-x-1">
                       →

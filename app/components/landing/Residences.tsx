@@ -1,3 +1,4 @@
+
 'use client';
 
 type ResidenceProps = {
@@ -31,24 +32,22 @@ export default function Residence({ onEnquire }: ResidenceProps) {
   return (
     <section
       id="properties"
-      className="bg-[#0d0d0c] px-5 py-24 text-white md:px-10 lg:py-32"
+      className="bg-[#0d0d0c] px-5 py-20 text-white sm:px-6 sm:py-24 md:px-10 md:py-28 lg:py-32"
     >
       <div className="mx-auto max-w-[1380px]">
 
         {/* Header */}
-        <div className="mb-14 max-w-3xl">
+        <div className="mb-12 max-w-3xl sm:mb-14 md:mb-16">
           <div className="mb-5 flex items-center gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#C5A059]">
+            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#C5A059] sm:text-[11px]">
               Residences
             </span>
           </div>
 
-          <h2 className="font-serif text-[46px] leading-[1] tracking-[-1px] md:text-[64px]">
+          <h2 className="font-serif text-[42px] leading-[0.98] tracking-[-1px] min-[400px]:text-[48px] sm:text-[58px] md:text-[68px] lg:text-[76px]">
             Find your
             <br />
-            <span className="text-[#C5A059]">
-              perfect residence.
-            </span>
+            <span className="text-[#C5A059]">perfect residence.</span>
           </h2>
         </div>
 
@@ -56,13 +55,15 @@ export default function Residence({ onEnquire }: ResidenceProps) {
         <div className="w-full">
 
           {/* Table Header */}
-          <div className="grid grid-cols-3 border-y border-white/15 bg-[#151513] px-6 py-5 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
+          <div className="hidden border-y border-white/15 bg-[#151513] px-6 py-5 md:grid md:grid-cols-[1.3fr_1fr_1fr] md:px-8 lg:px-10">
             <p className="text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
               Type
             </p>
+
             <p className="text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
               Carpet Area
             </p>
+
             <p className="text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
               Starting Price
             </p>
@@ -73,41 +74,99 @@ export default function Residence({ onEnquire }: ResidenceProps) {
             {residences.map((residence) => (
               <div
                 key={residence.type}
-                className="grid grid-cols-1 gap-5 border-t border-white/10 px-6 py-8 transition-colors duration-300 hover:bg-[#151513] md:grid-cols-[1.3fr_1fr_1fr] md:items-center md:gap-0 md:px-8 md:py-10"
+                className="
+                  border-t border-white/10
+                  px-0 py-8
+                  transition-colors duration-300
+                  hover:bg-[#151513]
+                  sm:py-9
+                  md:grid md:grid-cols-[1.3fr_1fr_1fr]
+                  md:items-center
+                  md:gap-0
+                  md:px-6
+                  md:py-10
+                  lg:px-8
+                  lg:py-12
+                "
               >
                 {/* Type */}
                 <div>
-                  <h3 className="font-serif text-2xl text-white md:text-3xl">
+                  <p className="mb-2 text-[9px] font-semibold uppercase tracking-[2px] text-white/35 md:hidden">
+                    Residence
+                  </p>
+
+                  <h3 className="font-serif text-[30px] leading-tight tracking-[-0.5px] text-white min-[400px]:text-[32px] sm:text-[36px] md:text-[34px] lg:text-[38px]">
                     {residence.type}
                   </h3>
                 </div>
 
-                {/* Carpet Area */}
-                <div className="flex items-center">
-                  <p className="text-base text-white/70 md:text-lg font-medium">
+                {/* Mobile details */}
+                <div className="mt-7 grid grid-cols-2 gap-6 md:hidden">
+                  <div>
+                    <p className="mb-2 text-[9px] font-semibold uppercase tracking-[2px] text-white/35">
+                      Carpet Area
+                    </p>
+
+                    <p className="text-lg font-medium text-white/75 sm:text-xl">
+                      {residence.area}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="mb-2 text-[9px] font-semibold uppercase tracking-[2px] text-white/35">
+                      Starting Price
+                    </p>
+
+                    <p className="font-serif text-[25px] leading-none text-[#C5A059] sm:text-[28px]">
+                      {residence.price}
+                    </p>
+
+                    <p className="mt-2 text-[9px] uppercase tracking-[1.5px] text-white/35">
+                      onwards
+                    </p>
+                  </div>
+                </div>
+
+                {/* Desktop Carpet Area */}
+                <div className="hidden md:flex md:items-center">
+                  <p className="text-lg font-medium text-white/70 lg:text-xl">
                     {residence.area}
                   </p>
                 </div>
 
-                {/* Price and Uniform Button layout */}
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <p className="font-serif text-2xl text-[#C5A059] md:text-3xl">
+                {/* Desktop Price + Button */}
+                <div className="mt-7 md:mt-0 md:flex md:items-center md:justify-between md:gap-6">
+                  <div className="hidden md:block">
+                    <p className="font-serif text-[28px] text-[#C5A059] lg:text-[32px]">
                       {residence.price}
                     </p>
+
                     <p className="mt-1 text-[10px] uppercase tracking-[1.5px] text-white/40">
                       onwards
                     </p>
                   </div>
 
-                  {/* Uniform button: full-width on mobile (w-full), fixed uniform width on desktop (md:w-[210px]) */}
                   <button
                     onClick={() =>
                       onEnquire(
                         `Enquire Now for ${residence.type} — ${residence.area} — ${residence.price}`
                       )
                     }
-                    className="w-full md:w-[210px] cursor-pointer rounded border border-[#C5A059] bg-[#C5A059]/15 px-6 py-3.5 text-center text-xs font-bold uppercase tracking-[1.5px] text-[#C5A059] transition-all duration-300 hover:bg-[#C5A059] hover:text-[#11110f]"
+                    className="
+                      mt-7 w-full cursor-pointer rounded
+                      border border-[#C5A059]
+                      bg-[#C5A059]/15
+                      px-6 py-4
+                      text-[11px] font-bold uppercase tracking-[1.5px]
+                      text-[#C5A059]
+                      transition-all duration-300
+                      hover:bg-[#C5A059]
+                      hover:text-[#11110f]
+                      sm:py-4.5
+                      md:mt-0
+                      md:w-[190px]
+                      lg:w-[210px]
+                    "
                   >
                     Enquire Now →
                   </button>
@@ -115,16 +174,15 @@ export default function Residence({ onEnquire }: ResidenceProps) {
               </div>
             ))}
           </div>
-
         </div>
 
-        {/* Bottom note */}
-        <div className="mt-8 flex flex-col justify-between gap-3 md:flex-row">
-          <p className="text-[10px] uppercase tracking-[1.5px] text-white/40 font-medium">
+        {/* Bottom Note */}
+        <div className="mt-7 flex flex-col gap-3 sm:mt-8 md:flex-row md:items-start md:justify-between">
+          <p className="text-[10px] font-medium uppercase tracking-[1.5px] text-white/40 sm:text-[11px]">
             Premium 2 & 3 BHK residences
           </p>
 
-          <p className="text-[10px] uppercase tracking-[1.5px] text-white/40 font-medium">
+          <p className="max-w-xl text-[10px] font-medium leading-5 tracking-[0.5px] text-white/40 sm:text-[11px] md:text-right">
             *Prices are indicative and subject to applicable taxes,
             availability and developer terms.
           </p>
@@ -134,3 +192,4 @@ export default function Residence({ onEnquire }: ResidenceProps) {
     </section>
   );
 }
+

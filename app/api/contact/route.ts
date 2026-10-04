@@ -11,8 +11,9 @@ const enquirySchema = z.object({
     .min(10, 'Enter a valid phone number')
     .max(15, 'Enter a valid phone number'),
   email: z.string().email('Enter a valid email address'),
+  configuration: z.string().nullish(),
+  message: z.string().max(2000).nullish(),
   topic: z.string().max(200),
-  privateEnquiry: z.boolean().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -27,20 +28,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, phone, email, topic, privateEnquiry } = parsed.data;
+    const { name, phone, email, configuration, message, topic } = parsed.data;
 
     const { error } = await resend.emails.send({
       // TODO: replace with your verified Resend sending domain
       from: 'onboarding@resend.dev',
       to: 'chaudharyaihtesham70@gmail.com', // TODO: replace with the client's real inbox
       replyTo: email,
-      subject: `New enquiry — ${topic}`,
+      subject: `New enquiry — ${configuration || topic}`,
       html: `
         <p><b>Enquiring about:</b> ${topic}</p>
         <p><b>Name:</b> ${name}</p>
         <p><b>Phone:</b> ${phone}</p>
         <p><b>Email:</b> ${email}</p>
-        <p><b>Private enquiry requested:</b> ${privateEnquiry ? 'Yes — do not share with other agents/portals' : 'No'}</p>
+        ${configuration ? `<p><b>Configuration:</b> ${configuration}</p>` : ''}
+        ${message ? `<p><b>Message:</b> ${message}</p>` : ''}
       `,
     });
 
@@ -61,5 +63,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-
