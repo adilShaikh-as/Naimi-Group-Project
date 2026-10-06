@@ -7,6 +7,7 @@ interface EnquiryModalProps {
   isOpen: boolean;
   topic: string;
   onClose: () => void;
+  redirectUrl?: string;
 }
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -15,6 +16,7 @@ export default function EnquiryModal({
   isOpen,
   topic,
   onClose,
+  redirectUrl
 }: EnquiryModalProps) {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -22,8 +24,6 @@ export default function EnquiryModal({
   if (!isOpen) return null;
 
   const isBrochureRequest = topic === 'Download Brochure';
-  // .includes() instead of strict equality — won't silently break if a dash
-  // character (— vs - vs –) gets changed somewhere along the way
   const isGeneralMessageRequest = topic.includes('Private Project Enquiry');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -34,7 +34,6 @@ export default function EnquiryModal({
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // honeypot — real users never fill this in, bots often do
     if (formData.get('company')) {
       setStatus('success');
       return;
@@ -44,10 +43,6 @@ export default function EnquiryModal({
       name: formData.get('name'),
       phone: formData.get('phone'),
       email: formData.get('email'),
-      // FormData.get() returns null for a field that isn't rendered at all
-      // (configuration vs message are mutually exclusive in this form) —
-      // convert that to undefined so it matches Zod's .optional() on the
-      // server, which doesn't accept null.
       configuration: formData.get('configuration') || undefined,
       message: formData.get('message') || undefined,
       topic,
@@ -67,6 +62,11 @@ export default function EnquiryModal({
 
       setStatus('success');
       form.reset();
+      if (redirectUrl) {
+        setTimeout(() => {
+          window.location.href = redirectUrl;
+        }, 1500);
+      }
     } catch (err) {
       setStatus('error');
       setErrorMessage(
@@ -99,7 +99,6 @@ export default function EnquiryModal({
           ×
         </button>
 
-        {/* Left — Editorial panel with Larger Logo */}
         <div className="relative hidden w-[40%] flex-col justify-between overflow-hidden bg-[#171715] p-10 text-white md:flex lg:p-12">
           <div className="absolute -bottom-32 -left-32 h-[320px] w-[320px] rounded-full border border-[#C5A059]/20" />
           <div className="absolute -bottom-24 -left-24 h-[240px] w-[240px] rounded-full border border-[#C5A059]/10" />
@@ -110,6 +109,7 @@ export default function EnquiryModal({
                 src="/new_logo.png"
                 alt="Naimi Group Logo"
                 fill
+                sizes='180px'
                 className="object-contain"
               />
             </div>
@@ -141,7 +141,6 @@ export default function EnquiryModal({
         <div className="max-h-[92vh] flex-1 overflow-y-auto">
           <div className="px-7 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
             {status === 'success' ? (
-              /* ------------------ Success state ------------------ */
               <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#A27D3B]/12 text-2xl text-[#A27D3B]">
                   ✓
@@ -203,7 +202,7 @@ export default function EnquiryModal({
                   <div className="group">
                     <label
                       htmlFor="full-name"
-                      className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                      className="mb-2 flex items-center gap-3 text-[12px] font-bold uppercase tracking-[2px] text-[#777168]"
                     >
                       <span className="text-[#A27D3B]">01</span>
                       Full Name
@@ -222,7 +221,7 @@ export default function EnquiryModal({
                   <div className="group">
                     <label
                       htmlFor="phone"
-                      className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                      className="mb-2 flex items-center gap-3 text-[12px] font-bold uppercase tracking-[2px] text-[#777168]"
                     >
                       <span className="text-[#A27D3B]">02</span>
                       Phone Number
@@ -241,7 +240,7 @@ export default function EnquiryModal({
                   <div className="group">
                     <label
                       htmlFor="email"
-                      className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                      className="mb-2 flex items-center gap-3 text-[12px] font-bold uppercase tracking-[2px] text-[#777168]"
                     >
                       <span className="text-[#A27D3B]">03</span>
                       Email Address
@@ -257,13 +256,11 @@ export default function EnquiryModal({
                   </div>
 
                   {isGeneralMessageRequest ? (
-                    /* Message box — this entry point is explicitly
-                       "just send us a message," so a configuration
-                       dropdown doesn't apply here */
+
                     <div className="group">
                       <label
                         htmlFor="message"
-                        className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                        className="mb-2 flex items-center gap-3 text-[12px] font-bold uppercase tracking-[2px] text-[#777168]"
                       >
                         <span className="text-[#A27D3B]">04</span>
                         Your Message
@@ -282,7 +279,7 @@ export default function EnquiryModal({
                     <div className="group">
                       <label
                         htmlFor="configuration"
-                        className="mb-2 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[2px] text-[#777168]"
+                        className="mb-2 cursor-pointer flex items-center gap-3 text-[12px] font-bold uppercase tracking-[2px] text-[#777168]"
                       >
                         <span className="text-[#A27D3B]">04</span>
                         Configuration
@@ -331,8 +328,8 @@ export default function EnquiryModal({
                       {status === 'submitting'
                         ? 'Sending…'
                         : isBrochureRequest
-                        ? 'Get Brochure'
-                        : 'Send an Enquiry'}
+                          ? 'Get Brochure'
+                          : 'Send an Enquiry'}
                     </span>
                     <span className="text-xl font-light transition-transform duration-300 group-hover:translate-x-1">
                       →

@@ -81,10 +81,6 @@ export default function Hero({ onEnquire }: HeroProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-7 right-7 z-10 hidden items-center gap-3 text-[9px] uppercase tracking-[3px] text-white/50 lg:flex">
-        Scroll to explore
-        <span className="h-px w-10 bg-white/30" />
-      </div>
     </section>
   );
 }

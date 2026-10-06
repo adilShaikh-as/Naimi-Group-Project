@@ -48,7 +48,7 @@ export default function Footer() {
 
                 <div className="border-t border-white/10 pt-4">
                   <p className="text-[9px] uppercase tracking-[2px] text-white/35">
-                    Agent MahaRERA
+                    Naimi Group MahaRERA
                   </p>
                   <p className="mt-1 text-sm tracking-wide text-white/80">
                     A51900043176

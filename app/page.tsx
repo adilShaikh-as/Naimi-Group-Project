@@ -19,12 +19,12 @@ export default function LandingPage() {
     'Enquiry'
   );
 
-  // Open the enquiry modal on every page load / refresh
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setEnquiryTopic('Enquiry');
       setIsModalOpen(true);
-    }, 800); // set to 0 for instant
+    }, 800); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -56,7 +56,7 @@ export default function LandingPage() {
 
       <Amenities onEnquire={openEnquiryModal} />
 
-      <Location />
+      <Location onEnquire={openEnquiryModal} />
 
       <FinalCTA onEnquire={openEnquiryModal} />
 
@@ -66,6 +66,11 @@ export default function LandingPage() {
         isOpen={isModalOpen}
         topic={enquiryTopic}
         onClose={closeEnquiryModal}
+        redirectUrl={
+          enquiryTopic === 'Location & Connectivity'
+            ? 'https://maps.app.goo.gl/khaqTxVNr6DVmeuD8'
+            : undefined
+        }
       />
     </main>
   );

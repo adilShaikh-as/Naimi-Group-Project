@@ -9,7 +9,6 @@ export default function FinalCTA({
 }: FinalCTAProps) {
   return (
     <section className="relative overflow-hidden bg-[#eeeae0] px-6 py-24 md:px-10 lg:py-32">
-      {/* Decorative background circles */}
       <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-black/10" />
       <div className="absolute -right-10 -top-10 h-52 w-52 rounded-full border border-black/10" />
 

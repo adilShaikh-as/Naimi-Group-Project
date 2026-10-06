@@ -9,17 +9,17 @@ const residences = [
   {
     type: '2 BHK',
     area: '649 sq ft',
-    price: '₹2.34 Cr',
+    price: '₹2.34 Cr+',
   },
   {
     type: '2 BHK Grand',
     area: '702 sq ft',
-    price: '₹2.53 Cr',
+    price: '₹2.53 Cr+',
   },
   {
     type: '3 BHK',
     area: '1,001 sq ft',
-    price: '₹3.60 Cr',
+    price: '₹3.60 Cr+',
   },
   {
     type: 'Exclusive Duplex',
@@ -137,7 +137,7 @@ export default function Residence({ onEnquire }: ResidenceProps) {
                 {/* Desktop Price + Button */}
                 <div className="mt-7 md:mt-0 md:flex md:items-center md:justify-between md:gap-6">
                   <div className="hidden md:block">
-                    <p className="font-serif text-[28px] text-[#C5A059] lg:text-[32px]">
+                    <p className="font-serif text-[28px] text-[#C5A059] lg:text-[27px]">
                       {residence.price}
                     </p>
 
@@ -149,7 +149,7 @@ export default function Residence({ onEnquire }: ResidenceProps) {
                   <button
                     onClick={() =>
                       onEnquire(
-                        `Enquire Now for ${residence.type} — ${residence.area} — ${residence.price}`
+                        "Enquiry for Residence"
                       )
                     }
                     className="

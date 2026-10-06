@@ -18,7 +18,7 @@ const links = [
 export default function Navbar({ onEnquire }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
-  // Lock body scroll while the mobile menu is open
+  
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -26,7 +26,7 @@ export default function Navbar({ onEnquire }: NavbarProps) {
     };
   }, [open]);
 
-  // Close on Escape, and when resizing up to desktop
+  
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
     const mq = window.matchMedia('(min-width: 1024px)');
@@ -61,6 +61,7 @@ export default function Navbar({ onEnquire }: NavbarProps) {
                 src="/new_logo.png"
                 alt="Naimi Group Logo"
                 fill
+                sizes='180px'
                 className="object-contain"
                 priority
               />
