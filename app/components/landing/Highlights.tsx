@@ -3,7 +3,7 @@ export default function Highlights() {
     ['2 & 3 BHK', 'Premium Residences'],
     ['649–1001', 'SQ.FT. Carpet Area'],
     ['G+ 40', 'Floors of Elevation'],
-    ['Andheri West', 'Mumbai'],
+    ['New Link Road', 'Andheri West Mumbai'],
   ];
 
   return (
