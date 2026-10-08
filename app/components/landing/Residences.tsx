@@ -1,4 +1,3 @@
-
 'use client';
 
 type ResidenceProps = {
@@ -9,21 +8,25 @@ const residences = [
   {
     type: '2 BHK',
     area: '649 sq ft',
-    price: '₹2.34 Cr+',
+    subtext: 'higher floor inventory',
+    price: '₹2.59 Cr+',
   },
   {
     type: '2 BHK Grand',
     area: '702 sq ft',
+    subtext: '',
     price: '₹2.53 Cr+',
   },
   {
     type: '3 BHK',
     area: '1,001 sq ft',
+    subtext: '',
     price: '₹3.60 Cr+',
   },
   {
     type: 'Exclusive Duplex',
     area: '—',
+    subtext: '',
     price: '₹3.32 Cr+',
   },
 ];
@@ -110,6 +113,11 @@ export default function Residence({ onEnquire }: ResidenceProps) {
                     <p className="text-lg font-medium text-white/75 sm:text-xl">
                       {residence.area}
                     </p>
+                    {residence.subtext && (
+                      <p className="mt-1 text-[10px] uppercase tracking-[1px] text-[#C5A059]">
+                        {residence.subtext}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -128,10 +136,15 @@ export default function Residence({ onEnquire }: ResidenceProps) {
                 </div>
 
                 {/* Desktop Carpet Area */}
-                <div className="hidden md:flex md:items-center">
+                <div className="hidden md:flex md:flex-col md:justify-center">
                   <p className="text-lg font-medium text-white/70 lg:text-xl">
                     {residence.area}
                   </p>
+                  {residence.subtext && (
+                    <p className="mt-1 text-[10px] uppercase tracking-[1px] text-[#C5A059]">
+                      {residence.subtext}
+                    </p>
+                  )}
                 </div>
 
                 {/* Desktop Price + Button */}
@@ -192,4 +205,3 @@ export default function Residence({ onEnquire }: ResidenceProps) {
     </section>
   );
 }
-

@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function Footer() {
@@ -8,7 +10,7 @@ export default function Footer() {
         <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 lg:px-14">
           <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
 
-            {/* Brand Logo & Name */}
+            {/* Brand Logo, Name & Contact Numbers */}
             <div>
               <div className="flex items-center gap-4">
                 <div className="relative h-14 w-14 overflow-hidden rounded-md">
@@ -28,9 +30,30 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
+
+              {/* Clickable Contact Numbers */}
+              <div className="mt-6 space-y-2">
+                <p className="text-[9px] uppercase tracking-[2px] text-white/35">
+                  Direct Inquiries / Sales Desk
+                </p>
+                <div className="flex flex-col gap-1 text-sm tracking-wide text-white/80">
+                  <a
+                    href="tel:+919820502932"
+                    className="transition-colors hover:text-[#C5A059]"
+                  >
+                    +91-9820502932
+                  </a>
+                  <a
+                    href="tel:+918898851003"
+                    className="transition-colors hover:text-[#C5A059]"
+                  >
+                    +91-8898851003
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* RERA Compliance Details */}
+            {/* RERA Compliance Details (Direct Standalone Larger QR Image) */}
             <div>
               <p className="mb-6 text-[9px] font-semibold uppercase tracking-[3px] text-[#C5A059]">
                 Compliance & Registrations
@@ -39,20 +62,32 @@ export default function Footer() {
               <div className="space-y-6">
                 <div>
                   <p className="text-[9px] uppercase tracking-[2px] text-white/35">
-                    Project MahaRERA
-                  </p>
-                  <p className="mt-1 text-sm tracking-wide text-white/80">
-                    P51800049875
-                  </p>
-                </div>
-
-                <div className="border-t border-white/10 pt-4">
-                  <p className="text-[9px] uppercase tracking-[2px] text-white/35">
                     Naimi Group MahaRERA
                   </p>
                   <p className="mt-1 text-sm tracking-wide text-white/80">
                     A51900043176
                   </p>
+                </div>
+
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-[9px] uppercase tracking-[2px] text-white/35">
+                    Project MahaRERA
+                  </p>
+                  <p className="mt-1 text-sm tracking-wide text-white/80">
+                    P51800049875
+                  </p>
+                  
+                  {/* Standalone Larger QR Code Image */}
+                  <div className="mt-4">
+                    <div className="relative h-32 w-32 overflow-hidden bg-white p-1 rounded">
+                      <Image
+                        src="/project-maharera.jpeg" 
+                        alt="MahaRERA QR Code"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
