@@ -25,7 +25,7 @@ const residences = [
   },
   {
     type: 'Exclusive Duplex',
-    area: '—',
+    area: '1+1 850 sqft',
     subtext: '',
     price: '₹3.32 Cr+',
   },
