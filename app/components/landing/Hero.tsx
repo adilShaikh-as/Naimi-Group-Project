@@ -64,7 +64,7 @@ export default function Hero({ onEnquire }: HeroProps) {
                   Starting From
                 </p>
                 <p className="mt-1 font-serif text-xl text-white sm:text-2xl">
-                  ₹2.34 Cr*
+                  ₹2.53 Cr++
                 </p>
               </div>
 
