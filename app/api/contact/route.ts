@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const { error } = await resend.emails.send({
       // TODO: replace with your verified Resend sending domain
       from: 'Naimi Group <enquiries@naimigroup.co.in>',
-      to: 'adilshaikh345as@gmail.com', // TODO: replace with the client's real inbox
+      to: 'astraders812@gmail.com', // TODO: replace with the client's real inbox
       replyTo: email,
       subject: `New enquiry — ${configuration || topic}`,
       html: `
