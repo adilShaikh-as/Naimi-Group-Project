@@ -12,6 +12,15 @@ interface EnquiryModalProps {
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
+const LEAD_CONVERSION_SEND_TO = 'AW-18417848500/ilL_CMaJ9ZodELShqM5E';
+
+function trackLeadConversion() {
+  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', { send_to: LEAD_CONVERSION_SEND_TO });
+  }
+}
+
 export default function EnquiryModal({
   isOpen,
   topic,
@@ -61,6 +70,7 @@ export default function EnquiryModal({
       }
 
       setStatus('success');
+      trackLeadConversion();
       form.reset();
       if (redirectUrl) {
         setTimeout(() => {

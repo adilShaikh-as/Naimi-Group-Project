@@ -16,6 +16,17 @@ const enquirySchema = z.object({
   topic: z.string().max(200),
 });
 
+const esc = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+
+const oneLine = (value: string) => value.replace(/[\r\n]+/g, ' ').trim();
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -31,18 +42,18 @@ export async function POST(req: NextRequest) {
     const { name, phone, email, configuration, message, topic } = parsed.data;
 
     const { error } = await resend.emails.send({
-      // TODO: replace with your verified Resend sending domain
+     
       from: 'Naimi Group <enquiries@naimigroup.co.in>',
-      to: 'astraders812@gmail.com', // TODO: replace with the client's real inbox
+      to: 'astraders812@gmail.com', 
       replyTo: email,
-      subject: `New enquiry — ${configuration || topic}`,
+      subject: `New enquiry — ${oneLine(configuration || topic)}`,
       html: `
-        <p><b>Enquiring about:</b> ${topic}</p>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Email:</b> ${email}</p>
-        ${configuration ? `<p><b>Configuration:</b> ${configuration}</p>` : ''}
-        ${message ? `<p><b>Message:</b> ${message}</p>` : ''}
+        <p><b>Enquiring about:</b> ${esc(topic)}</p>
+        <p><b>Name:</b> ${esc(name)}</p>
+        <p><b>Phone:</b> ${esc(phone)}</p>
+        <p><b>Email:</b> ${esc(email)}</p>
+        ${configuration ? `<p><b>Configuration:</b> ${esc(configuration)}</p>` : ''}
+        ${message ? `<p><b>Message:</b> ${esc(message).replace(/\r?\n/g, '<br />')}</p>` : ''}
       `,
     });
 
