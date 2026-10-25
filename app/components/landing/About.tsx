@@ -58,7 +58,7 @@ export default function About() {
           <div className="absolute -bottom-8 -left-8 hidden w-44 overflow-hidden border-8 border-[#F3F0E9] shadow-xl md:block">
             <div className="relative h-44 bg-[#CFC9BC]">
               <Image
-                src="/interior.jpeg"
+                src="/interior.png"
                 alt="Naimi Heights interior detail"
                 fill
                 sizes="176px"

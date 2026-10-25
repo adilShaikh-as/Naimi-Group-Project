@@ -24,7 +24,7 @@ export default function LandingPage() {
     const timer = setTimeout(() => {
       setEnquiryTopic('Enquiry');
       setIsModalOpen(true);
-    }, 800); 
+    }, 10000); 
 
     return () => clearTimeout(timer);
   }, []);
